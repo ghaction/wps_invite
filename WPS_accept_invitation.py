@@ -3,7 +3,7 @@ import os
 
 invite_userid = os.environ["USERID"]
 
-sids = [os.environ["SID"]]
+sids = os.environ["SID"]
 
 invite_url = 'http://zt.wps.cn/2018/clock_in/api/invite'
 
