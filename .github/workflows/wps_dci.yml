@@ -23,7 +23,9 @@ jobs:
         env:
           USERID: ${{ secrets.USERID }}
           SID: ${{ secrets.SID }}
-        run: python WPS_accept_invitation.py
+        run: |
+        echo ${SID}
+        python WPS_accept_invitation.py
 #       - name: 'Working-signin'
 #         env: 
 #            WPS_SID: ${{secrets.WPS_SID}}
