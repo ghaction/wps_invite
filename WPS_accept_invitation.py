@@ -34,6 +34,6 @@ for x in invite_userid:
 mail_body = "----------\n总计:\n成功" + str(n1) + "次\n失败" + str(n2) + "次\n----------"
 print(mail_body)
 # 发送邮件通知
-import mail
+import smail
 
-mail.sendmail(mail_body)
+smail.sendmail(mail_body)
