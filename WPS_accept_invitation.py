@@ -41,6 +41,7 @@ for x in invite_userid:
 mail_body = "<P><STRONG>-------------</STRONG></P><P><STRONG>成功:<FONT color=#008000>" + str(
     n1) + "</FONT></STRONG></P><P><STRONG>失败:<FONT color=#ff0000>" + str(
     n2) + "</FONT></STRONG></P><P><STRONG>-------------</STRONG></P></BODY></HTML>" + mail_body
+
 print("----------\n总计:\n成功" + str(n1) + "次\n失败" + str(n2) + "次\n----------")
 # 发送邮件通知
 import smail
