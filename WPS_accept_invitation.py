@@ -1,5 +1,4 @@
 from time import sleep
-
 import os
 import random
 import requests
@@ -12,11 +11,11 @@ sids = sids.split(',')
 
 invite_url = 'http://zt.wps.cn/2018/clock_in/api/invite'
 
-num1=0
+num1 = 0
 for x in invite_userid:
     n1 = 0
     n2 = 0
-    num1=num1+1
+    num1 = num1 + 1
     print("-----第" + str(num1) + "个ID-----")
     for i in sids:
         rep = requests.post(invite_url, headers={"sid": i}, data={"invite_userid": x}, timeout=10)
@@ -24,7 +23,6 @@ for x in invite_userid:
         try:
             return_result = (rep.json().get("result"))
             if return_result == "ok":
-
                 n1 = n1 + 1
                 print("成功！ " + str(n1))
             else:
@@ -33,4 +31,9 @@ for x in invite_userid:
         except:
             pass
 
-    print("----------\n总计:\n成功" + str(n1) + "次\n失败" + str(n2) + "次\n----------")
+    mail_body = "----------\n总计:\n成功" + str(n1) + "次\n失败" + str(n2) + "次\n----------"
+    print(mail_body)
+# 发送邮件通知
+import mail
+
+mail.sendmail(mail_body)
