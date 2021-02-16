@@ -31,8 +31,8 @@ for x in invite_userid:
         except:
             pass
 
-    mail_body = "----------\n总计:\n成功" + str(n1) + "次\n失败" + str(n2) + "次\n----------"
-    print(mail_body)
+mail_body = "----------\n总计:\n成功" + str(n1) + "次\n失败" + str(n2) + "次\n----------"
+print(mail_body)
 # 发送邮件通知
 import mail
 
