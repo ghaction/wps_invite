@@ -17,7 +17,7 @@ for x in invite_userid:
     n1 = 0
     n2 = 0
     num1=num1+1
-    print("-----第" + num1 + "个ID-----")
+    print("-----第" + str(num1) + "个ID-----")
     for i in sids:
         rep = requests.post(invite_url, headers={"sid": i}, data={"invite_userid": x}, timeout=10)
         sleep(random.uniform(0.3, 1))
