@@ -27,7 +27,7 @@ jobs:
           FROM_ADDR: ${{ secrets.FROM_ADDR }}
           MAIL_PASSWORD: ${{ secrets.MAIL_PASSWORD }}
           TO_ADDR: ${{ secrets.TO_ADDR }}
-          
+
         run: python WPS_accept_invitation.py
 #       - name: 'Working-signin'
 #         env: 
