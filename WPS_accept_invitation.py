@@ -10,7 +10,6 @@ invite_userid = invite_userid.split(',')
 sids = sids.split(',')
 
 url = "https://zt.wps.cn/2018/clock_in/api/invite"
-payload = {'invite_userid': '1136976999'}
 
 num1 = 0
 for x in invite_userid:
@@ -22,9 +21,10 @@ for x in invite_userid:
     for i in sids:
         headers = {
             'Accept-Language': 'zh-cn',
-            'sid': x,
+            'sid': i,
             'User-Agent': 'Mozilla/5.0 (Linux; Android 7.0; Mi-4c Build/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/53.0.2785.49 Mobile MQQBrowser/6.2 TBS/043632 Safari/537.36 MicroMessenger/6.6.1.1220(0x26060135) NetType/WIFI Language/zh_CN MicroMessenger/6.6.1.1220(0x26060135) NetType/WIFI Language/zh_CN miniProgram'
         }
+        payload = {'invite_userid': x}
 
         response = requests.request("POST", url, headers=headers, data=payload, timeout=2000)
         try:
