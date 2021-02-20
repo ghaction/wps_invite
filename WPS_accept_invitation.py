@@ -20,7 +20,7 @@ for x in invite_userid:
     print("-----第" + str(num1) + "个ID-----")
     for i in sids:
         rep = requests.post(invite_url, headers={"sid": i}, data={"invite_userid": x}, timeout=10)
-        sleep(random.uniform(0.3, 1))
+
         try:
             return_result = (rep.json().get("result"))
             if return_result == "ok":
@@ -36,7 +36,9 @@ for x in invite_userid:
                     i) + ",<FONT color=#ff0000>失败!</FONT></STRONG></P>"
                 print("失败！ " + str(n2))
         except:
-            pass
+            pass  # 占位符
+
+        sleep(random.uniform(1, 5))
 
 mail_body = "<P><STRONG>-------------</STRONG></P><P><STRONG>成功:<FONT color=#008000>" + str(
     n1) + "</FONT></STRONG></P><P><STRONG>失败:<FONT color=#ff0000>" + str(
