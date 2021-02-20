@@ -2,6 +2,7 @@ from time import sleep
 import os
 import random
 import requests
+import smail
 
 invite_userid = os.environ["USERID"]
 sids = os.environ["SIDS"]
@@ -12,11 +13,15 @@ sids = sids.split(',')
 url = "https://zt.wps.cn/2018/clock_in/api/invite"
 
 num1 = 0
+n1 = n2 = 0
+mail_body = ""
+
 for x in invite_userid:
-    n1 = 0
-    n2 = 0
-    num1 = num1 + 1
+
+    n1 = n2 = 0
     mail_body = ""
+    num1 = num1 + 1
+
     print("-----第" + str(num1) + "个ID-----")
     for i in sids:
         headers = {
@@ -28,7 +33,7 @@ for x in invite_userid:
 
         response = requests.request("POST", url, headers=headers, data=payload, timeout=2000)
         try:
-            return_result = (response.json().get("result"))
+            return_result = (response.json().get("result"))  # 获取结果
 
             if return_result == "ok":
                 n1 = n1 + 1
@@ -36,11 +41,11 @@ for x in invite_userid:
                     i) + ",<FONT color=#008000>成功!</FONT></STRONG></P>"
                 print("成功！ " + str(n1))
             else:
-                msg = (response.json().get("msg"))
+                msg = (response.json().get("msg"))  # 获取错误信息
                 n2 = n2 + 1
 
                 mail_body = mail_body + "<P><STRONG>" + str(x) + "," + str(
-                    i) + ",<FONT color=#ff0000>失败!</FONT>" + msg + "</STRONG></P>"
+                    i) + ",<FONT color=#ff0000>失败!</FONT>" + "   错误信息:\"" + msg + "\"" + "</STRONG></P>"
                 print("失败！ " + str(n2))
         except:
             pass  # 占位符
@@ -52,7 +57,5 @@ mail_body = "<P><STRONG>-------------</STRONG></P><P><STRONG>成功:<FONT color=
     n2) + "</FONT></STRONG></P><P><STRONG>-------------</STRONG></P></BODY></HTML>" + mail_body
 
 print("----------\n总计:\n成功" + str(n1) + "次\n失败" + str(n2) + "次\n----------")
-# 发送邮件通知
-import smail
 
-smail.sendmail(mail_body)
+smail.sendmail(mail_body)  # 发送邮件通知
