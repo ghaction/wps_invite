@@ -30,7 +30,9 @@ jobs:
           csrf: ${{ secrets.csrf }} # 签到账号csrf
           wps_sid: ${{ secrets.wps_sid }} # 签到账号SID
 
-        run: python WPS_accept_invitation.py
+        run: |
+          python WPS_accept_invitation.py
+          python docer_check_in.py
 #       - name: 'Working-signin'
 #         env: 
 #            WPS_SID: ${{secrets.WPS_SID}}
