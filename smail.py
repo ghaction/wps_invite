@@ -1,4 +1,4 @@
-def sendmail(mailbody):
+def sendmail(mailtitle, mailbody):  # (标题，正文)
     from email.mime.text import MIMEText
     from email.utils import formataddr
     import smtplib
@@ -7,10 +7,12 @@ def sendmail(mailbody):
     # SMTP服务器以及相关配置信息
     smtp_sever = os.environ["STMP_SERVER"]
     from_addr = os.environ["FROM_ADDR"]  # 发件人邮箱
-    from_username = "ROBOT"  # 发件人昵称
+    from_username = "massage robot"  # 发件人昵称
     password = os.environ["MAIL_PASSWORD"]  # 授权码
     to_addr = os.environ["TO_ADDR"]  # 收件人邮箱
-    mailtitle = 'WPS INVITE'  # 邮件标题
+    if mailtitle is None:
+        mailtitle = 'WPS'  # 默认邮件标题
+
     # 邮件正文
 
     msg = MIMEText(mailbody, 'html', 'utf-8')

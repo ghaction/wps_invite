@@ -21,12 +21,14 @@ jobs:
         run: pip install -r ./requirements.txt
       - name: 'Working-invite'
         env:
-          USERID: ${{ secrets.USERID }}
-          SIDS: ${{ secrets.SIDS }}
-          STMP_SERVER: ${{ secrets.STMP_SERVER }}
-          FROM_ADDR: ${{ secrets.FROM_ADDR }}
-          MAIL_PASSWORD: ${{ secrets.MAIL_PASSWORD }}
-          TO_ADDR: ${{ secrets.TO_ADDR }}
+          USERID: ${{ secrets.USERID }} #接收邀请用户ID
+          SIDS: ${{ secrets.SIDS }} # 邀请账号SID
+          STMP_SERVER: ${{ secrets.STMP_SERVER }} # STMP服务器
+          FROM_ADDR: ${{ secrets.FROM_ADDR }} # 发件邮箱
+          MAIL_PASSWORD: ${{ secrets.MAIL_PASSWORD }} # 邮箱密码或邀请码
+          TO_ADDR: ${{ secrets.TO_ADDR }} # 收件邮箱
+          csrf: ${{ secrets.csrf }} # 签到账号csrf
+          wps_sid: ${{ secrets.wps_sid }} # 签到账号SID
 
         run: python WPS_accept_invitation.py
 #       - name: 'Working-signin'

@@ -58,4 +58,4 @@ mail_body = "<P><STRONG>-------------</STRONG></P><P><STRONG>成功:<FONT color=
 
 print("----------\n总计:\n成功" + str(n1) + "次\n失败" + str(n2) + "次\n----------")
 
-smail.sendmail(mail_body)  # 发送邮件通知
+smail.sendmail("[WPS邀请结果]",mail_body)  # 发送邮件通知
