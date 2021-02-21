@@ -3,7 +3,7 @@ import os
 import random
 import requests
 import smail
-
+print("-----------WPS邀请-----------")
 invite_userid = os.environ["USERID"]
 sids = os.environ["SIDS"]
 

@@ -2,8 +2,8 @@ import requests
 import os
 import smail
 
+print("-----------稻壳打卡-----------")
 wps_sid = os.environ["wps_sid"]
-csrf = os.environ["csrf"]
 
 url = "https://zt.wps.cn/2018/docer_check_in/api/checkin_today"
 
@@ -13,7 +13,7 @@ headers = {
     'X-Requested-With': 'XMLHttpRequest',
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36',
     'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-    'Cookie': 'wpsqing_autoLoginV1=1;uzone=CN-HN;ulocale=zh-CN;csrf=' + csrf + ';wps_sid=' + wps_sid
+    'Cookie': 'wpsqing_autoLoginV1=1;uzone=CN-HN;ulocale=zh-CN;wps_sid=' + wps_sid
 }
 
 response = requests.request("POST", url, headers=headers, timeout=2000)

@@ -1,4 +1,4 @@
-name: 'WPS daily check in'
+name: 'WPS Work'
 
 on:
   push:
@@ -27,7 +27,6 @@ jobs:
           FROM_ADDR: ${{ secrets.FROM_ADDR }} # 发件邮箱
           MAIL_PASSWORD: ${{ secrets.MAIL_PASSWORD }} # 邮箱密码或邀请码
           TO_ADDR: ${{ secrets.TO_ADDR }} # 收件邮箱
-          csrf: ${{ secrets.csrf }} # 签到账号csrf
           wps_sid: ${{ secrets.wps_sid }} # 签到账号SID
 
         run: |
