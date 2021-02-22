@@ -27,8 +27,9 @@ def get_userinfo(wps_sid):
     try:
         vip_expire_time = "<p>---会员到期时间---</p>"
         for i in response.json().get("data").get("vip").get("enabled"):
-            vip_expire_time = vip_expire_time + i.get("name") + ":" + time.strftime('%Y-%m-%d %H:%M:%S', time.gmtime(
-                i.get("expire_time")))
+            vip_expire_time = vip_expire_time + "<p>" + i.get("name") + ":" + time.strftime('%Y-%m-%d %H:%M:%S',
+                                                                                            time.gmtime(i.get(
+                                                                                                "expire_time"))) + "</p>"
         info = info + "<p>" + vip_expire_time + "</p>"
     except:
         pass
