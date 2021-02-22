@@ -19,17 +19,17 @@ def get_userinfo(wps_sid):
     user_type = response.json().get("data").get("vip").get("name")  # 当前用户类型
     regtime = time.strftime('%Y-%m-%d %H:%M:%S', time.gmtime(response.json().get("data").get("regtime")))  # 注册时间
 
-    info = '''昵称:{nickname}
-    用户ID:{userid}
-    用户类型:{user_type}
+    info = '''<p>昵称:{nickname}</p>
+    <p>用户ID:{userid}</p>
+    <p>用户类型:{user_type}</p>
     '''.format(nickname=nickname, userid=userid, regtime=regtime, user_type=user_type)
 
     try:
-        vip_expire_time = "---会员到期时间---\n"
+        vip_expire_time = "<p>---会员到期时间---</p>"
         for i in response.json().get("data").get("vip").get("enabled"):
             vip_expire_time = vip_expire_time + i.get("name") + ":" + time.strftime('%Y-%m-%d %H:%M:%S', time.gmtime(
-                i.get("expire_time"))) + "\n"
-        info = info + vip_expire_time
+                i.get("expire_time")))
+        info = info + "<p>" + vip_expire_time + "</p>"
     except:
         pass
 
