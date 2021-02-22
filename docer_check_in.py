@@ -31,8 +31,7 @@ try:
             mail_body = "Cookie错误！"
             print("未登录！")
 
-
-finally:
+except:
     mail_body = "错误：" + response.text
     print("其他错误！")
 

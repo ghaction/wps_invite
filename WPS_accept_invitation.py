@@ -48,7 +48,7 @@ for x in invite_userid:
                 mail_body = mail_body + "<P><STRONG>" + str(x) + "," + str(
                     i) + ",<FONT color=#ff0000>失败!</FONT>" + "   错误信息:\"" + msg + "\"" + "</STRONG></P>"
                 print("失败！ " + str(n2))
-        finally:
+        except:
             pass  # 占位符
 
         sleep(random.uniform(1, 5))
@@ -59,4 +59,4 @@ mail_body = "<P><STRONG>-------------</STRONG></P><P><STRONG>成功:<FONT color=
 
 print("----------\n总计:\n成功" + str(n1) + "次\n失败" + str(n2) + "次\n----------")
 
-smail.sendmail("[WPS邀请结果]",mail_body)  # 发送邮件通知
+smail.sendmail("[WPS邀请结果]", mail_body)  # 发送邮件通知

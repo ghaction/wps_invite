@@ -30,8 +30,7 @@ def get_userinfo(wps_sid):
             vip_expire_time = vip_expire_time + i.get("name") + ":" + time.strftime('%Y-%m-%d %H:%M:%S', time.gmtime(
                 i.get("expire_time"))) + "\n"
         info = info + vip_expire_time
-
-    finally:
+    except:
         pass
 
     return info
