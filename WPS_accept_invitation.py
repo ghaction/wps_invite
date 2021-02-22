@@ -11,16 +11,14 @@ if os.path.exists("config.json"):
     f.close()
     config = json.loads(config)
     sids = config.get("invite").get("sids")
-    invite_userid=config.get("userids")
+    invite_userid = config.get("userids")
 else:
     config = json.loads(os.environ["CONF"])
 
 sids = config.get("invite").get("sids")
-invite_userid=config.get("userids")
-
+invite_userid = config.get("userids")
 
 print("-----------WPS邀请-----------")
-
 
 url = "https://zt.wps.cn/2018/clock_in/api/invite"
 
@@ -49,8 +47,8 @@ for x in invite_userid:
 
             if return_result == "ok":
                 n1 = n1 + 1
-                mail_body = mail_body + "<P><STRONG>" + str(x) + "," + str(
-                    i) + ",<FONT color=#008000>成功!</FONT></STRONG></P>"
+                # mail_body = mail_body + "<P><STRONG>" + str(x) + "," + str(i) + ",<FONT color=#008000>成功!</FONT></STRONG></P>"
+
                 print("成功！ " + str(n1))
             else:
                 msg = (response.json().get("msg"))  # 获取错误信息
@@ -64,9 +62,9 @@ for x in invite_userid:
 
         sleep(random.uniform(1, 5))
 
-mail_body = "<P><STRONG>-------------</STRONG></P><P><STRONG>成功:<FONT color=#008000>" + str(
-    n1) + "</FONT></STRONG></P><P><STRONG>失败:<FONT color=#ff0000>" + str(
-    n2) + "</FONT></STRONG></P><P><STRONG>-------------</STRONG></P></BODY></HTML>" + mail_body
+mail_body = "<P>-------------</P><P>成功:<FONT color=#008000>" + str(
+    n1) + "</FONT></P><P>失败:<FONT color=#ff0000>" + str(
+    n2) + "</FONT></P><P>-------------</P>" + mail_body
 
 print("----------\n总计:\n成功" + str(n1) + "次\n失败" + str(n2) + "次\n----------")
 
