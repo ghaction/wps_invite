@@ -10,10 +10,10 @@ if os.path.exists("config.json"):
     config = f.read()
     f.close()
     config = json.loads(config)
-    wps_sid = config.get("self").get("wps_sid")
 else:
-    wps_sid = os.environ["wps_sid"]
+    config = json.loads(os.environ["CONF"])
 
+wps_sid = config.get("self").get("wps_sid")
 
 if wps_sid is not None and wps_sid != "":
     url = "https://zt.wps.cn/2018/docer_check_in/api/checkin_today"
@@ -46,6 +46,7 @@ if wps_sid is not None and wps_sid != "":
         print("其他错误！")
 
     smail.sendmail("[稻壳签到结果]",
-                   userinfo.get_userinfo(wps_sid) + "<p>---------------</p><p>" + mail_body + "</p>")  # 发送邮件通知
+                   "<p>" + mail_body + "</p>" + userinfo.get_userinfo(
+                       wps_sid) + userinfo.get_data(wps_sid))  # 发送邮件通知
 else:
     print("未配置wps_sid，跳过打卡！")

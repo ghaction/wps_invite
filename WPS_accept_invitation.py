@@ -13,11 +13,10 @@ if os.path.exists("config.json"):
     sids = config.get("invite").get("sids")
     invite_userid=config.get("userids")
 else:
-    invite_userid = os.environ["USERID"]
-    sids = os.environ["SIDS"]
-    invite_userid = invite_userid.split(',')
-    sids = sids.split(',')
+    config = json.loads(os.environ["CONF"])
 
+sids = config.get("invite").get("sids")
+invite_userid=config.get("userids")
 
 
 print("-----------WPS邀请-----------")

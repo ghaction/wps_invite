@@ -1,6 +1,6 @@
 venv
 .idea
 __pycache__
-/SID.txt
-/*test.*
+SID.txt
+*test.*
 config.json

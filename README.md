@@ -1,12 +1,10 @@
 https://github.com/datugou/WPS_daily_check_in
 
-### 
-
-
-
-### 本地测试配置文件
+### 配置文件
 
 ```config.json```
+
+### Repository secrets:```CONF```
 
 ```json
 {
@@ -24,6 +22,7 @@ https://github.com/datugou/WPS_daily_check_in
     ]
   },
   "mail": {
+    "enable_email": "true",
     "smtp_sever": "smtp.xx.xx",
     "email_addr": "发送邮箱example@xx.xx",
     "password": "密码或授权码",
