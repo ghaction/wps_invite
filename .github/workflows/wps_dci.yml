@@ -28,6 +28,7 @@ jobs:
           MAIL_PASSWORD: ${{ secrets.MAIL_PASSWORD }} # 邮箱密码或邀请码
           TO_ADDR: ${{ secrets.TO_ADDR }} # 收件邮箱
           wps_sid: ${{ secrets.wps_sid }} # 签到账号SID
+          enable_email: "true" #是否开启邮件提醒 true 开启  其他关闭
 
         run: |
           python WPS_accept_invitation.py

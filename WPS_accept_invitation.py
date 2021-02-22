@@ -3,13 +3,25 @@ import os
 import random
 import requests
 import smail
+import json
+
+if os.path.exists("config.json"):
+    f = open('config.json', 'r')
+    config = f.read()
+    f.close()
+    config = json.loads(config)
+    sids = config.get("invite").get("sids")
+    invite_userid=config.get("userids")
+else:
+    invite_userid = os.environ["USERID"]
+    sids = os.environ["SIDS"]
+    invite_userid = invite_userid.split(',')
+    sids = sids.split(',')
+
+
 
 print("-----------WPS邀请-----------")
-invite_userid = os.environ["USERID"]
-sids = os.environ["SIDS"]
 
-invite_userid = invite_userid.split(',')
-sids = sids.split(',')
 
 url = "https://zt.wps.cn/2018/clock_in/api/invite"
 
