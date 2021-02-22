@@ -4,6 +4,7 @@ import smail
 import userinfo
 import json
 
+mail_body = ""
 print("-----------稻壳打卡-----------")
 if os.path.exists("config.json"):
     f = open('config.json', 'r')

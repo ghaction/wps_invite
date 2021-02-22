@@ -10,8 +10,6 @@ if os.path.exists("config.json"):
     config = f.read()
     f.close()
     config = json.loads(config)
-    sids = config.get("invite").get("sids")
-    invite_userid = config.get("userids")
 else:
     config = json.loads(os.environ["CONF"])
 
@@ -47,15 +45,15 @@ for x in invite_userid:
 
             if return_result == "ok":
                 n1 = n1 + 1
-                # mail_body = mail_body + "<P><STRONG>" + str(x) + "," + str(i) + ",<FONT color=#008000>成功!</FONT></STRONG></P>"
+                # mail_body = mail_body + "<P>" + str(x) + "," + str(i) + ",<FONT color=#008000>成功!</FONT></P>"
 
                 print("成功！ " + str(n1))
             else:
                 msg = (response.json().get("msg"))  # 获取错误信息
                 n2 = n2 + 1
 
-                mail_body = mail_body + "<P><STRONG>" + str(x) + "," + str(
-                    i) + ",<FONT color=#ff0000>失败!</FONT>" + "   错误信息:\"" + msg + "\"" + "</STRONG></P>"
+                mail_body = mail_body + "<P>" + str(x) + "," + str(
+                    i) + ",<FONT color=#ff0000>失败!</FONT>" + "   错误信息:\"" + msg + "\"" + "</P>"
                 print("失败！ " + str(n2))
         except:
             pass  # 占位符
