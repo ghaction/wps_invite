@@ -2,4 +2,4 @@ venv
 .idea
 __pycache__
 /SID.txt
-/test.py
+/*test.*

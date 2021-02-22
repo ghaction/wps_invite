@@ -3,6 +3,7 @@ import os
 import random
 import requests
 import smail
+
 print("-----------WPS邀请-----------")
 invite_userid = os.environ["USERID"]
 sids = os.environ["SIDS"]
@@ -47,7 +48,7 @@ for x in invite_userid:
                 mail_body = mail_body + "<P><STRONG>" + str(x) + "," + str(
                     i) + ",<FONT color=#ff0000>失败!</FONT>" + "   错误信息:\"" + msg + "\"" + "</STRONG></P>"
                 print("失败！ " + str(n2))
-        except:
+        finally:
             pass  # 占位符
 
         sleep(random.uniform(1, 5))
