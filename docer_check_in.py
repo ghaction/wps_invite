@@ -2,6 +2,7 @@ import requests
 import os
 import smail
 import userinfo
+
 print("-----------稻壳打卡-----------")
 wps_sid = os.environ["wps_sid"]
 
@@ -35,4 +36,4 @@ except:
     mail_body = "错误：" + response.text
     print("其他错误！")
 
-smail.sendmail("[稻壳签到结果]", userinfo.get_userinfo(wps_sid)+"---------------\n"+mail_body)  # 发送邮件通知
+smail.sendmail("[稻壳签到结果]", userinfo.get_userinfo(wps_sid) + "<p>---------------</p><p>" + mail_body + "</p>")  # 发送邮件通知
