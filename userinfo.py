@@ -5,7 +5,6 @@ import time
 def get_userinfo(wps_sid):
     url = "https://vip.wps.cn/userinfo"
     payload = {}
-    user_Agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36'
     headers = {
         'Accept': 'application/json, text/javascript, */*; q=0.01',
         'Cookie': 'wpsqing_autoLoginV1=1; uzone=CN-HN; ulocale=zh-CN; wps_sid=' + wps_sid,

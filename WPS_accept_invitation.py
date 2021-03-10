@@ -4,6 +4,7 @@ import random
 import requests
 import smail
 import json
+import time
 
 if os.path.exists("config.json"):
     f = open('config.json', 'r')
@@ -67,3 +68,5 @@ mail_body = "<P>-------------</P><P>成功:<FONT color=#008000>" + str(
 print("----------\n总计:\n成功" + str(n1) + "次\n失败" + str(n2) + "次\n----------")
 
 smail.sendmail("[WPS邀请结果]", mail_body)  # 发送邮件通知
+
+time.sleep(2)

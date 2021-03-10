@@ -3,7 +3,7 @@ import os
 import smail
 import userinfo
 import json
-
+import time
 mail_body = ""
 print("-----------稻壳打卡-----------")
 if os.path.exists("config.json"):
@@ -51,3 +51,5 @@ if wps_sid is not None and wps_sid != "":
                        wps_sid) + userinfo.get_data(wps_sid))  # 发送邮件通知
 else:
     print("未配置wps_sid，跳过打卡！")
+
+time.sleep(2)
