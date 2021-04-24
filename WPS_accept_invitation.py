@@ -38,7 +38,9 @@ for x in invite_userid:
             'sid': i,
             'User-Agent': 'Mozilla/5.0 (Linux; Android 7.0; Mi-4c Build/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/53.0.2785.49 Mobile MQQBrowser/6.2 TBS/043632 Safari/537.36 MicroMessenger/6.6.1.1220(0x26060135) NetType/WIFI Language/zh_CN MicroMessenger/6.6.1.1220(0x26060135) NetType/WIFI Language/zh_CN miniProgram'
         }
-        payload = {'invite_userid': x}
+        payload = {'invite_userid': x,
+                   'client_code': '040ce6c23213494c8de9653e0074YX30',
+                   'client': 'alipay'}
 
         response = requests.request("POST", url, headers=headers, data=payload, timeout=2000)
         try:
